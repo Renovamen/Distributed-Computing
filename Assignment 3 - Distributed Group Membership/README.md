@@ -46,11 +46,11 @@ Python实现，基于Gossip协议。
 
 节点将根据 `conf.yaml` 中的配置定期刷新成员列表，并将超过一定时间没收到rumor的节点置于 `SUSPECTED` 状态或判定它失败。
 
-**Join：**若一个节点想要加入 group，它会向 introducer 发送 `JOINED` 消息。如果 introducer 已经加入了 group，其他节点将更新自己维护的成员列表等信息； 如果 introducer 不在 group 内，则没有新节点可以加入该 group，但 group 中的节点可以继续正常运作。其他节点会 heartbeat 一次并向它发送 rumor，包含已经加入或离开的节点的信息。
+**Join：** 若一个节点想要加入 group，它会向 introducer 发送 `JOINED` 消息。如果 introducer 已经加入了 group，其他节点将更新自己维护的成员列表等信息； 如果 introducer 不在 group 内，则没有新节点可以加入该 group，但 group 中的节点可以继续正常运作。其他节点会 heartbeat 一次并向它发送 rumor，包含已经加入或离开的节点的信息。
 
-**Leave：**若一个节点想要离开 group，它会向成员列表中的其他节点发送 `LEFT` 消息，并停止向其其他节点发送 rumor。
+**Leave：** 若一个节点想要离开 group，它会向成员列表中的其他节点发送 `LEFT` 消息，并停止向其其他节点发送 rumor。
 
-**Crash：**一个节点失败后，它将不会向它的邻居节点发送rumor。超过一定时间（在 `conf.yaml` 中配置）没有节点收到它的rumor后，它将被置为"可疑"状态；再过一定时间没有节点收到它的rumor后，它将被判为已失败。它可以向 introducer 发送新的 `JOINED` 请求并重新加入 group。
+**Crash：** 一个节点失败后，它将不会向它的邻居节点发送rumor。超过一定时间（在 `conf.yaml` 中配置）没有节点收到它的rumor后，它将被置为"可疑"状态；再过一定时间没有节点收到它的rumor后，它将被判为已失败。它可以向 introducer 发送新的 `JOINED` 请求并重新加入 group。
 
 
 
