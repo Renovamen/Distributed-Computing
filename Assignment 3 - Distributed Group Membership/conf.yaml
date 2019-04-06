@@ -1,0 +1,10 @@
+introducer:
+    ip: 192.168.225.200 # renovamen-01
+port: 2334
+interval:
+    gossip: 0.2
+    reading: 0.2
+threshold:
+    suspect: 2
+    fail: 4
+    forget: 2
